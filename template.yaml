@@ -1,0 +1,141 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: telemed-app-ui
+  title: Telemed App UI Template
+  description: Scaffold Telemed UI
+  tags:
+    - react
+    - telemed
+spec:
+  owner: sourcefuse.com
+  type: website
+  parameters:
+    - title: Provide some simple information
+      required:
+        - component_id
+        - owner
+      properties:
+        component_id:
+          title: Name
+          type: string
+          description: Unique name of the component
+          ui:field: EntityNamePicker
+        description:
+          title: Description
+          type: string
+          description: Help others understand what this website is for.
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+        client_id:
+          title: Client Id
+          type: string
+          description: Client id for authentication
+          default: webapp
+        auth_api_base_url:
+          title: Authentication Api Base Url
+          type: string
+          description: Authentication service base url
+          default: https://telemed-authentication-api.sfarcpoc.com
+        notification_api_base_url:
+          title: Notification Api Base Url
+          type: string
+          description: Notification service base url
+          default: https://telemed-notification-api.sfarcpoc.com
+        video_api_base_url:
+          title: Video Api Base Url
+          type: string
+          description: Video service base url
+          default: https://telemed-video-conferencing-api.sfarcpoc.com/
+        pubnub_publish_key:
+          title: Pubnub Publish Key
+          type: string
+          description: Publish Key for Pubnub
+          default: pub-c-d6b50755-2212-48ec-99da-38ecc57c31d4
+        pubnub_subscribe_key:
+          title: Pubnub Subscribe Key
+          type: string
+          description: Subscribe Key for Pubnub
+          default: sub-c-289ccd94-4b30-4717-bd00-d75e10f07f10
+        notification_channel_uuid:
+          title: Notification Channel UUID
+          type: string
+          description: UUID for Notification Channel
+          default: 9a462b1a-4974-400b-b242-6969f5835354
+        chat_channel_uuid:
+          title: Chat Channel UUID
+          type: string
+          description: UUID for Chat Channel
+          default: c1e3903b-e2ae-4c08-a66e-5c55342dc92c
+        vonage_api_key:
+          title: Vonage Api Key
+          type: string
+          description: Api key for Vonage
+          default: "47748051"
+
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+  steps:
+    - id: template
+      name: Fetch Skeleton + Template
+      action: fetch:template
+      input:
+        url: ./skeleton
+        copyWithoutRender:
+          - .github/workflows/*
+        values:
+          component_id: ${{ parameters.component_id }}
+          client_id: ${{ parameters.client_id }}
+          auth_api_base_url: ${{parameters.auth_api_base_url}}
+          notification_api_base_url: ${{parameters.notification_api_base_url}}
+          video_api_base_url: ${{parameters.video_api_base_url}}
+          pubnub_publish_key: ${{parameters.pubnub_publish_key}}
+          pubnub_subscribe_key: ${{parameters.pubnub_subscribe_key}}
+          notification_channel_uuid: ${{parameters.notification_channel_uuid}}
+          chat_channel_uuid: ${{parameters.chat_channel_uuid}}
+          vonage_api_key: ${{parameters.vonage_api_key}}
+          description: ${{ parameters.description }}
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}
+          owner: ${{ parameters.owner }}
+
+    - id: envSh
+      name: Create env.sh
+      action: acme:file:create
+
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        allowedHosts:
+          - github.com
+        description: This is ${{ parameters.component_id }}
+        repoUrl: ${{ parameters.repoUrl }}
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        catalogInfoPath: "/catalog-info.yaml"
+
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps.publish.output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps.register.output.entityRef }}
