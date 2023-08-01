@@ -2,11 +2,14 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: telemed-app-ui
-  title: Telemed App UI Template
-  description: Scaffold Telemed UI
+  title: Telemedicine App UI Template
+  description: Create ARC UI based frontend for a Tele-medicine Project.
   tags:
     - react
-    - telemed
+    - telemedicine
+    - arc-ui
+    - vite
+    - cdn-ready
 spec:
   owner: sourcefuse.com
   type: website
