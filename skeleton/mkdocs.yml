@@ -1,6 +1,6 @@
-# site_name: ${{values.component_id | dump}}
-# site_description: ${{values.description | dump}}
-# nav:
-#   - Introduction: index.md
-# plugins:
-#   - techdocs-core
+site_name: ${{values.component_id | dump}}
+site_description: ${{values.description | dump}}
+nav:
+  - Introduction: index.md
+plugins:
+  - techdocs-core
