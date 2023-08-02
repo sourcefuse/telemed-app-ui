@@ -18,7 +18,7 @@ This repository contains code that demonstrates how to deploy a Single-Page Appl
 
 You can use the cdk contained in the project to deploy your web app.
 Just build you app using build script `npm run build` and
-follow along the steps mentioned [here](./cdk/README.md)
+follow along the steps mentioned [here](./skeleton/cdk/README.md)
 
 ## <a id="prereqs"></a> Pre-Requisites
 
