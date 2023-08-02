@@ -54,13 +54,14 @@ For the `NOTIFICATION_CHANNEL_UUID` and `CHAT_CHANNEL_UUID`, you can use any ran
 | npm run format   | Format all files using prettier                                                            |
 
 
-## Our Other Projects Worth Checking Out
+## References
 
 At ARC, our mission is to empower developers and organizations by providing seamless solutions for developing and deploying applications, both on the backend and frontend. We are committed to ensuring that every aspect of app development adheres to the highest security and industry standards, ensuring a smooth and secure user experience.
 
 As part of our commitment to the open-source community, we actively contribute to a range of projects, some of which include:
 
-- [loopback4-microservice-catalog](https://github.com/sourcefuse/loopback4-microservice-catalog/)
-- [arc-lambda](https://github.com/sourcefuse/arc-lambda)
-- [arc-iac](https://sourcefuse.github.io/arc-docs/arc-iac-docs/)
-- [react-boilerplate](https://github.com/sourcefuse/react-boilerplate-ts-ui/)
+- [ARC Docs](https://sourcefuse.github.io/arc-docs)
+- [ARC API](https://github.com/sourcefuse/loopback4-microservice-catalog/)
+- [ARC Lambda](https://github.com/sourcefuse/arc-lambda)
+- [ARC IaC](https://sourcefuse.github.io/arc-docs/arc-iac-docs/)
+- [ARC React Boilerplate](https://github.com/sourcefuse/react-boilerplate-ts-ui/)
