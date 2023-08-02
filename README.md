@@ -2,16 +2,16 @@
 
 The ARC Telemedicine App is a proof-of-concept application that enables seamless communication between doctors and patients through video calls and chat. The app aims to provide a virtual healthcare solution, allowing medical professionals to conduct remote consultations and provide personalized care to patients from the comfort of their own homes in real time.
 
+![Screenshot 2023-08-02 at 9 33 06 AM](https://github.com/sourcefuse/telemed-app-ui/assets/107536993/8c99eca0-84c5-4ee4-89e3-1881e39d91ee)
+
 ## How to use
 
-- Scaffold the app using Telemedicine App UI Template.
+- Scaffold the app using Telemedicine App UI Template from Backstage.
 - cd into the folder and run `npm i` to install all the required dependencies.
 - Add the [environment variables](#environment-variables) to connect to ARC backend services.
 - Run `npm start` to run the vite development server.
 - To deploy the app checkout [Deploy](#deploy) section.
-![Screenshot 2023-08-02 at 9 33 06 AM](https://github.com/sourcefuse/telemed-app-ui/assets/107536993/8c99eca0-84c5-4ee4-89e3-1881e39d91ee)
 
-  
 ## Deploy
 
 This repository contains code that demonstrates how to deploy a Single-Page Application (SPA) to Amazon Web Services (AWS) S3 and CloudFront using Cloud Development Kit for Terraform (CDKTF) for TypeScript. The deployment process involves creating an S3 bucket, configuring CloudFront distribution, setting up DNS with Route 53, and uploading the SPA files to the S3 bucket.
@@ -19,12 +19,6 @@ This repository contains code that demonstrates how to deploy a Single-Page Appl
 You can use the cdk contained in the project to deploy your web app.
 Just build you app using build script `npm run build` and
 follow along the steps mentioned [here](./skeleton/cdk/README.md)
-
-## <a id="prereqs"></a> Pre-Requisites
-
-- [node.js](https://nodejs.dev/download/)
-- [npm](https://docs.npmjs.com/cli/v6/commands/npm-install)
-- [ARC Backend services](https://github.com/sourcefuse/loopback4-microservice-catalog)
 
 ## Environment Variables
 
