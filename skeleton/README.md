@@ -1,4 +1,4 @@
-# [ARC Telemedicine](https://github.com/sourcefuse/telemed-app-ui)
+# ARC Telemedicine
 
 The ARC Telemedicine App is a proof-of-concept application that enables seamless communication between doctors and patients through video calls and chat. The app aims to provide a virtual healthcare solution, allowing medical professionals to conduct remote consultations and provide personalized care to patients from the comfort of their own homes in real time.
 
@@ -9,6 +9,16 @@ The ARC Telemedicine App is a proof-of-concept application that enables seamless
 - Add the [environment variables](#environment-variables) to connect to ARC backend services.
 - Run `npm start` to run the vite development server.
 - To deploy the app checkout [Deploy](#deploy) section.
+
+  ![Screenshot 2023-08-02 at 9 33 06 AM](https://github.com/sourcefuse/telemed-app-ui/assets/107536993/10f9c41a-d390-4265-ab34-95fcf19d30a8)
+
+## Deploy
+This repository contains code that demonstrates how to deploy a Single-Page Application (SPA) to Amazon Web Services (AWS) S3 and CloudFront using Cloud Development Kit for Terraform (CDKTF) for TypeScript. The deployment process involves creating an S3 bucket, configuring CloudFront distribution, setting up DNS with Route 53, and uploading the SPA files to the S3 bucket.
+
+You can use the cdk contained in the project to deploy your web app.
+Just build you app using build script `npm run build` and
+follow along the steps mentioned [here](./cdk/README.md)
+
 
 ## <a id="prereqs"></a> Pre-Requisites
 
@@ -49,11 +59,6 @@ For the `NOTIFICATION_CHANNEL_UUID` and `CHAT_CHANNEL_UUID`, you can use any ran
 | npm run lint:fix | Fix all auto-fixable lint errors                                                           |
 | npm run format   | Format all files using prettier                                                            |
 
-## Deploy
-
-You can use the cdk contained in the project to deploy your web app.
-Just build you app using build script `npm run build` and
-follow along the steps mentioned in the README [here](./cdk/README.md)
 
 ## Our Other Projects Worth Checking Out
 
