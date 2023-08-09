@@ -2,7 +2,7 @@
 
 The ARC Telemedicine App is a proof-of-concept application that enables seamless communication between doctors and patients through video calls and chat. The app aims to provide a virtual healthcare solution, allowing medical professionals to conduct remote consultations and provide personalized care to patients from the comfort of their own homes in real time.
 
-![Screenshot 2023-08-02 at 9 33 06 AM](https://github.com/sourcefuse/telemed-app-ui/assets/107536993/8c99eca0-84c5-4ee4-89e3-1881e39d91ee)
+![Login Page Screenshot](https://imgur.com/cdB1jcT.png)
 
 ## How to use
 
